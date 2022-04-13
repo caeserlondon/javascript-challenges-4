@@ -21,10 +21,36 @@
 // }
 // console.log(capitaize("caeser al ani"));
 //// solution 3
-function capitaize(str) {
-	return str.replace(/\b[a-z]/gi, function (char) {
-		return char.toUpperCase();
+// function capitaize(str) {
+// 	return str.replace(/\b[a-z]/gi, function (char) {
+// 		return char.toUpperCase();
+// 	});
+// }
+
+// console.log(capitaize("caeser al ani"));
+////////////////////////////
+/// CHALLENGE 2
+// MAX CHARECTER IN A STRING
+// solution
+function maxChar(str) {
+	const charMap = {};
+	let maxNum = 0;
+	let maxCharr = "";
+
+	str.split("").forEach(function (char) {
+		if (charMap[char]) {
+			charMap[char]++;
+		} else {
+			charMap[char] = 1;
+		}
 	});
+	for (let char in charMap) {
+		if (charMap[char] > maxNum) {
+			maxNum = charMap[char];
+			maxCharr = char;
+		}
+	}
+	return maxCharr;
 }
 
-console.log(capitaize("caeser al ani"));
+console.log(maxChar("javascripttt"));
