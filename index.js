@@ -12,11 +12,19 @@
 // console.log(capitaize("caeser al ani"));
 ///////////
 // solution 2
+// function capitaize(str) {
+// 	let newArr = str
+// 		.toLowerCase()
+// 		.split(" ")
+// 		.map((word) => word[0].toUpperCase().concat(word.substr(1)));
+// 	return newArr.join(" ");
+// }
+// console.log(capitaize("caeser al ani"));
+//// solution 3
 function capitaize(str) {
-	let newArr = str
-		.toLowerCase()
-		.split(" ")
-		.map((word) => word[0].toUpperCase().concat(word.substr(1)));
-	return newArr.join(" ");
+	return str.replace(/\b[a-z]/gi, function (char) {
+		return char.toUpperCase();
+	});
 }
+
 console.log(capitaize("caeser al ani"));
