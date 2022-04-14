@@ -149,7 +149,7 @@
 /// no set Data structure
 
 //solution 1 using an array
-// function uniqe(str) {
+// function unique(str) {
 // 	let values = [];
 // 	for (let letter of str) {
 // 		if (values.indexOf(letter) !== -1) {
@@ -160,27 +160,44 @@
 // 	return true;
 // }
 
-// console.log(uniqe("abcde"));
+// console.log(unique("abcde"));
 // //true
-// console.log(uniqe("abacdefb"));
+// console.log(unique("abacdefb"));
 // //false
 
 /////////////
 
-///solution 2 using an object
+// ///solution 2 using an object
 
-function uniqe(str) {
-	let values = {};
-	for (let letter of str) {
-		if (values[letter]) {
+// function unique(str) {
+// 	let values = {};
+// 	for (let letter of str) {
+// 		if (values[letter]) {
+// 			return false;
+// 		}
+// 		values[letter] = "exists";
+// 	}
+// 	return true;
+// }
+
+// console.log(unique("abcde"));
+// //true
+// console.log(unique("abacdefb"));
+// //false
+/////////////
+
+///solution 3 using string method lastIndexOf()
+
+function unique(str) {
+	for (let i = 0; i < str.length; i++) {
+		if (str.lastIndexOf(str[i]) !== i) {
 			return false;
 		}
-		values[letter] = "exists";
 	}
 	return true;
 }
 
-console.log(uniqe("abcde"));
+console.log(unique("abcde"));
 //true
-console.log(uniqe("abacdefb"));
+console.log(unique("abacdefb"));
 //false
