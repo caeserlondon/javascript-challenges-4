@@ -32,25 +32,56 @@
 /// CHALLENGE 2
 // MAX CHARECTER IN A STRING
 // solution
-function maxChar(str) {
-	const charMap = {};
-	let maxNum = 0;
-	let maxCharr = "";
+// function maxChar(str) {
+// 	const charMap = {};
+// 	let maxNum = 0;
+// 	let maxCharr = "";
 
-	str.split("").forEach(function (char) {
-		if (charMap[char]) {
-			charMap[char]++;
-		} else {
-			charMap[char] = 1;
-		}
-	});
-	for (let char in charMap) {
-		if (charMap[char] > maxNum) {
-			maxNum = charMap[char];
-			maxCharr = char;
-		}
+// 	str.split("").forEach(function (char) {
+// 		if (charMap[char]) {
+// 			charMap[char]++;
+// 		} else {
+// 			charMap[char] = 1;
+// 		}
+// 	});
+// 	for (let char in charMap) {
+// 		if (charMap[char] > maxNum) {
+// 			maxNum = charMap[char];
+// 			maxCharr = char;
+// 		}
+// 	}
+// 	return maxCharr;
+// }
+
+// console.log(maxChar("javascripttt"));
+
+///////////////////////////
+/// Challenge 3
+/// find the math sequence..   (no negetive numbers)
+/// artimatic, geometric, or no pattern
+
+function mathSequences(arr) {
+	let arith = new Set();
+	let geo = new Set();
+
+	for (let i = 1; i < arr.length; i++) {
+		let number1 = arr[i] - arr[i - 1];
+		arith.add(number1);
+		let number2 = arr[i] / arr[i - 1];
+		geo.add(number2);
 	}
-	return maxCharr;
+	if (arith.size === 1) {
+		return "Arithmatic";
+	}
+	if (geo.size === 1) {
+		return "Geometric";
+	}
+	return -1;
 }
 
-console.log(maxChar("javascripttt"));
+console.log(mathSequences([2, 4, 6, 8]));
+/// 'Arithmatic'
+console.log(mathSequences([3, 9, 27]));
+/// 'Geometric'
+console.log(mathSequences([2, 7, 16, 98]));
+/// -1
