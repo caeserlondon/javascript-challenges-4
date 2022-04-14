@@ -131,12 +131,34 @@
 
 ////////////////
 
-/// solution 2
-function cpitalizeWords(str) {
-	let words = str.split(" ").map((word) => {
-		return word.charAt(0).toUpperCase() + word.slice(1);
-	});
-	return words.join(" ");
+// /// solution 2
+// function cpitalizeWords(str) {
+// 	let words = str.split(" ").map((word) => {
+// 		return word.charAt(0).toUpperCase() + word.slice(1);
+// 	});
+// 	return words.join(" ");
+// }
+// console.log(cpitalizeWords("i love javaScript"));
+// console.log(cpitalizeWords("my name is caeser"));
+
+/////////////////////////////
+
+///CHALLENGE 6
+//return true onlyif all values are unique otherwise return false
+/// using array , object, string method  lastIndexOf()
+/// no set Data structure
+function uniqe(str) {
+	let values = [];
+	for (let letter of str) {
+		if (values.indexOf(letter) !== -1) {
+			return false;
+		}
+		values.push(letter);
+	}
+	return true;
 }
-console.log(cpitalizeWords("i love javaScript"));
-console.log(cpitalizeWords("my name is caeser"));
+
+console.log(uniqe("abcde"));
+//true
+console.log(uniqe("abacdefb"));
+//false
