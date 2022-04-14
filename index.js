@@ -147,13 +147,35 @@
 //return true onlyif all values are unique otherwise return false
 /// using array , object, string method  lastIndexOf()
 /// no set Data structure
+
+//solution 1 using an array
+// function uniqe(str) {
+// 	let values = [];
+// 	for (let letter of str) {
+// 		if (values.indexOf(letter) !== -1) {
+// 			return false;
+// 		}
+// 		values.push(letter);
+// 	}
+// 	return true;
+// }
+
+// console.log(uniqe("abcde"));
+// //true
+// console.log(uniqe("abacdefb"));
+// //false
+
+/////////////
+
+///solution 2 using an object
+
 function uniqe(str) {
-	let values = [];
+	let values = {};
 	for (let letter of str) {
-		if (values.indexOf(letter) !== -1) {
+		if (values[letter]) {
 			return false;
 		}
-		values.push(letter);
+		values[letter] = "exists";
 	}
 	return true;
 }
