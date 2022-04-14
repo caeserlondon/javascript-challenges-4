@@ -60,28 +60,56 @@
 /// find the math sequence..   (no negetive numbers)
 /// artimatic, geometric, or no pattern
 
-function mathSequences(arr) {
-	let arith = new Set();
-	let geo = new Set();
+// function mathSequences(arr) {
+// 	let arith = new Set();
+// 	let geo = new Set();
 
-	for (let i = 1; i < arr.length; i++) {
-		let number1 = arr[i] - arr[i - 1];
-		arith.add(number1);
-		let number2 = arr[i] / arr[i - 1];
-		geo.add(number2);
+// 	for (let i = 1; i < arr.length; i++) {
+// 		let number1 = arr[i] - arr[i - 1];
+// 		arith.add(number1);
+// 		let number2 = arr[i] / arr[i - 1];
+// 		geo.add(number2);
+// 	}
+// 	if (arith.size === 1) {
+// 		return "Arithmatic";
+// 	}
+// 	if (geo.size === 1) {
+// 		return "Geometric";
+// 	}
+// 	return -1;
+// }
+
+// console.log(mathSequences([2, 4, 6, 8]));
+// /// 'Arithmatic'
+// console.log(mathSequences([3, 9, 27]));
+// /// 'Geometric'
+// console.log(mathSequences([2, 7, 16, 98]));
+// /// -1
+
+////////////////////////////////////////////
+
+/// CHALLENGE 4
+//// LONGEST WORDS IN THE STRING
+/// if there are more than one word return them in an array.
+
+function longestWords(str) {
+	let words = str.split(" ");
+	let size = 0;
+	let max = [""];
+
+	for (let i = 0; i < words.length; i++) {
+		if (words[i].length >= size) {
+			size = words[i].length;
+			if (max[max.length - 1].length < words[i].length) {
+				max = [];
+				max.push(words[i]);
+			} else {
+				max = [...max, words[i]];
+			}
+		}
 	}
-	if (arith.size === 1) {
-		return "Arithmatic";
-	}
-	if (geo.size === 1) {
-		return "Geometric";
-	}
-	return -1;
+
+	return [...max];
 }
-
-console.log(mathSequences([2, 4, 6, 8]));
-/// 'Arithmatic'
-console.log(mathSequences([3, 9, 27]));
-/// 'Geometric'
-console.log(mathSequences([2, 7, 16, 98]));
-/// -1
+console.log(longestWords("I woke up early today"));
+console.log(longestWords("I love javascript"));
