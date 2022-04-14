@@ -92,24 +92,38 @@
 //// LONGEST WORDS IN THE STRING
 /// if there are more than one word return them in an array.
 
-function longestWords(str) {
-	let words = str.split(" ");
-	let size = 0;
-	let max = [""];
+// function longestWords(str) {
+// 	let words = str.split(" ");
+// 	let size = 0;
+// 	let max = [""];
 
-	for (let i = 0; i < words.length; i++) {
-		if (words[i].length >= size) {
-			size = words[i].length;
-			if (max[max.length - 1].length < words[i].length) {
-				max = [];
-				max.push(words[i]);
-			} else {
-				max = [...max, words[i]];
-			}
-		}
-	}
+// 	for (let i = 0; i < words.length; i++) {
+// 		if (words[i].length >= size) {
+// 			size = words[i].length;
+// 			if (max[max.length - 1].length < words[i].length) {
+// 				max = [];
+// 				max.push(words[i]);
+// 			} else {
+// 				max = [...max, words[i]];
+// 			}
+// 		}
+// 	}
 
-	return [...max];
+// 	return [...max];
+// }
+// console.log(longestWords("I woke up early today"));
+// console.log(longestWords("I love javascript"));
+
+/////////////////////////////
+///  CHALLENGE 5
+/// capitalize the first letter
+function cpitalizeWords(str) {
+	let words = str.split(" ").map((word) => {
+		let first = word.slice(0, 1).toUpperCase();
+		let rest = word.slice(1);
+		return `${first}${rest}`;
+	});
+	return words.join(" ");
 }
-console.log(longestWords("I woke up early today"));
-console.log(longestWords("I love javascript"));
+console.log(cpitalizeWords("i love javaScript"));
+console.log(cpitalizeWords("my name is caeser"));
