@@ -117,11 +117,24 @@
 /////////////////////////////
 ///  CHALLENGE 5
 /// capitalize the first letter
+// /// solution 1
+// function cpitalizeWords(str) {
+// 	let words = str.split(" ").map((word) => {
+// 		let first = word.slice(0, 1).toUpperCase();
+// 		let rest = word.slice(1);
+// 		return `${first}${rest}`;
+// 	});
+// 	return words.join(" ");
+// }
+// console.log(cpitalizeWords("i love javaScript"));
+// console.log(cpitalizeWords("my name is caeser"));
+
+////////////////
+
+/// solution 2
 function cpitalizeWords(str) {
 	let words = str.split(" ").map((word) => {
-		let first = word.slice(0, 1).toUpperCase();
-		let rest = word.slice(1);
-		return `${first}${rest}`;
+		return word.charAt(0).toUpperCase() + word.slice(1);
 	});
 	return words.join(" ");
 }
